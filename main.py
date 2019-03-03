@@ -14,7 +14,7 @@ def send_http_request(color):
     data = json.dumps({'color':color}) 
 
     r = requests.post(url = API_ENDPOINT, json = data) 
-    print("Status code returned: " + r.status_code)
+    print("{} {}".format("Status code returned:", r.status_code))
 
 while True:
     if red_button.is_pressed:

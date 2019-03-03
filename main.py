@@ -9,6 +9,13 @@ red_button = Button(2)
 yellow_button = Button(3)
 green_button = Button(14)
 
+def send_http_request(color):
+    print("Sending " + color)
+    data = json.dumps({'color':color}) 
+
+    r = requests.post(url = API_ENDPOINT, json = data) 
+    print("Status code returned: " + r.status_code)
+
 while True:
     if red_button.is_pressed:
         print("Red button is pressed")
@@ -23,9 +30,3 @@ while True:
         print("No buttons pressed")
     sleep(1)
 
-def send_http_request(color):
-    print("Sending " + color)
-    data = json.dumps({'color':color}) 
-
-    r = requests.post(url = API_ENDPOINT, json = data) 
-    print("Status code returned: " + r.status_code)

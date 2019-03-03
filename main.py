@@ -12,10 +12,13 @@ green_button = Button(14)
 while True:
     if red_button.is_pressed:
         print("Red button is pressed")
+        send_http_request("red")
     elif yellow_button.is_pressed:
         print("Yellow button is pressed")
+        send_http_request("yellow")
     elif green_button.is_pressed:
         print("Green button is pressed")
+        send_http_request("green")
     else:
         print("No buttons pressed")
     sleep(1)
